@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Spotify YT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<body>
+
+  <aside class="sidebar">
+    <hr />
+<button onclick="toggleTheme()">🌓 Cambiar Tema</button>
+
+    <h2>🎵 Music 2025</h2>
+    <nav class="menu-nav">
+    <button class="menu-item" onclick="navigateTo('home')">Inicio</button>
+    <button class="menu-item" onclick="navigateTo('store')">Music</button>
+    <button class="menu-item" onclick="navigateTo('library')">Biblioteca</button>
+  </nav>
+</aside>
+
+  <main id="main-content">
+    <section id="home" class="section active">
+      <h1>Bienvenido</h1>
+      <p>Explora música con visuales.</p>
+      <section id="library">
+  <h1>Generos Musicales</h1>
+  <div class="playlist synthwave">
+    <h3>🎹 Synthwave - Electronica - Regueton - Cumbia</h3>
+  </div>
+</section>
+
+</section>
+
+
+<div id="playlist-creator">
+  <h2>🎛️ Crear Nueva Playlist</h2>
+  <form id="createForm">
+    <input type="text" id="playlistName" placeholder="Nombre de la playlist" required />
+    
+    <select id="playlistTheme" required>
+      <option value="">Selecciona estilo</option>
+      <option value="electronica">Electrónica</option>
+      <option value="regueton">Reguetón</option>
+      <option value="cumbia">Cumbia</option>
+
+      <option value="trap">Synthwave</option>
+    </select>
+    <select id="visualizerStyle">
+  <option value="bars">🎚️ Barras</option>
+  <option value="circle">🌀 Circular</option>
+</select>
+
+    <select id="audioSelect" required>
+  <option value="">Selecciona una canción</option>
+
+  <!-- Electrónica -->
+  <option value="Music/Electronica/Avicii  Levels.mp3" class="electronica">Avicii - Levels</option>
+  <option value="Music/Electronica/Avicii  Waiting For Love.mp3" class="electronica">Avicii - Waiting For Love</option>
+  <option value="Music/Electronica/Alan Walker  Darkside.mp3" class="electronica">Alan Walker - Darkside</option>
+  <option value="Music/Electronica/Alan Walker On My Way.mp3" class="electronica">Alan Walker - On My Way</option>
+
+  <!-- Reguetón -->
+  <option value="Music/Regueton/Jombriel - Vitamina.mp3" class="regueton">Jombriel - Vitamina</option>
+  <option value="Music/Regueton/Jombriel - La Jama.mp3" class="regueton">Jombriel - La Jama</option>
+  <option value="Music/Regueton/Cris Mj - Noche En Medellin.mp3" class="regueton">Cris Mj - Noche En Medellin</option>
+  <option value="Music/Regueton/Floyymenor - Tu Me Calientas.mp3" class="regueton">Floyymenor - Tu Me Calientas</option>
+
+  <!-- Cumbia -->
+  <option value="Music/Cumbia/Quba Rosero - Tu Amor Mi Amor.mp3" class="cumbia">Quba Rosero - Tu Amor Mi Amor</option>
+  <option value="Music/Cumbia/Euler Caicedo - Patos A Nadar.mp3" class="cumbia">Euler Caicedo - Patos A Nadar</option>
+  <option value="Music/Cumbia/Star Band Pista AnthonyMixer DJ (Producer).mp3" class="cumbia">Star Band Pista AnthonyMixer DJ (Producer)</option>
+  <option value="Music/Cumbia/Paseito Ecuatoriano Version AnthonyMixer DJ Producer.mp3" class="cumbia">Paseito Ecuatoriano Version AnthonyMixer DJ Producer</option>
+</select>
+
+
+    <button type="submit">Crear 🎶</button>
+  </form>
+</div>
+
+<div class="playlist synthwave">
+  <h3>🎹 Synthwave Pulse</h3>
+  <div class="track-card" onclick="playTrack('Music/The Weeknd  Save Your Tears Official Music Video.mp3', 'Neon Drive')">
+    <img src="Images/logo.png" alt="Portada Synthwave" width="150" />
+
+    <!-- 🎥 Video centrado aquí -->
+    <div class="video-container">
+      <video width="360" controls>
+        <source src="Videos/The Weeknd - Save Your Tears.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+
+    <div class="info">
+      <h3>The Weeknd - Save Your Tears</h3>
+      <canvas class="visualizer" width="250" height="60"></canvas> 
+      <button onclick="toggleAudio(this, 'Music/The Weeknd  Save Your Tears Official Music Video.mp3')">▶️ Reproducir</button>
+      <button onclick="pauseAudio()">⏸️ Pausar Canción</button>
+      <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+    </div>
+  </div>
+</div>
+
+
+    </section>
+
+<h1>Tus Playlists</h1>
+
+<div class="playlist synthwave">
+  <h3>🎹 Synthwave Pulse</h3>
+  <div class="track-card" onclick="playTrack('Music/Akkira.mp3', 'Neon Drive')">
+    <img src="Images/Synthwave.png" alt="Portada Synthwave" width="150" />
+    <div class="info">
+    <div class="seccion-bass">
+  <h3>Blueberry - Akkira</h3>
+  <canvas class="visualizer" width="250" height="60"></canvas>
+</div>
+      <h4>Akkira</h4>
+      <button onclick="toggleAudio(this, 'Music/Akkira.mp3')">▶️ Reproducir</button>
+      <button onclick="pauseAudio()">⏸️ Pausar Canción</button>
+      <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+    </div>
+  </div>
+</div>
+
+<div class="track-card">
+  <img src="Images/Avicii Levels.jpg" width="150" />
+  <canvas class="visualizer" width="250" height="60"></canvas>
+  <class="info">
+    <h4>Avicii - Levels</h4>
+    <button onclick="toggleAudio(this, 'Music/Electronica/Avicii  Levels.mp3')">▶️ Reproducir</button>
+    <button onclick="pauseAudio()">⏸️ Pausar Canción</button>
+    <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+    <div class="player-info">
+         <progress value="0" max="100"></progress>
+         <span class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="playlist lofi">
+  <h3>☁️ Lo-Fi Dreams</h3>
+  <div class="track-card" onclick="playTrack('assets/audio/midnight-sketch.mp3', 'Midnight Sketch')">
+    <img src="Images/Avicii - Love.jpg" alt="Portada Lo-Fi" width="150" />
+    <canvas class="visualizer" width="250" height="60"></canvas>
+    <class="info">
+      <h4>Avicii - Waiting For Love</h4>
+      <button onclick="toggleAudio(this, 'Music/Electronica/Avicii  Waiting For Love.mp3')">▶️ Reproducir</button>
+      <button onclick="pauseAudio()">⏸️ Pausar Canción</button>
+      <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+      <div class="player-info">
+         <progress value="0" max="100"></progress>
+         <span class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="playlist trap">
+  <h3>🔥 Trap Lab</h3>
+  <div class="track-card" onclick="playTrack('assets/audio/bass-ops.mp3', 'Bass Ops')">
+    <img src="Images/Alan Walker - Darkside.jpg" alt="Portada Trap" width="150" />
+    <canvas class="visualizer" width="250" height="60"></canvas>
+    <div class="info">
+      <h4>Bass Ops</h4>
+      <button onclick="toggleAudio(this, 'Music/Electronica/Alan Walker  Darkside.mp3')">▶️ Reproducir</button>
+      <button onclick="pauseAudio()">⏸️ Pausar Canción</button>
+      <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+      <div class="player-info">
+         <progress value="0" max="100"></progress>
+         <span class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="playlist trap">
+  <h3>🔥 Trap Lab</h3>
+  <div class="track-card" onclick="playTrack('assets/audio/bass-ops.mp3', 'Bass Ops')">
+    <img src="Images/Alan Walker - On My Way.jpg" alt="Portada Trap" width="150" />
+    <canvas class="visualizer" width="250" height="60"></canvas>
+    <div class="info">
+      <h4>Bass Ops</h4>
+      <button onclick="toggleAudio(this, 'Music/Electronica/Alan Walker On My Way.mp3')">▶️ Reproducir</button>
+      <button onclick="pauseAudio()"> Pausar Canción</button>
+      <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+      <div class="player-info">
+         <progress value="0" max="100"></progress>
+         <span class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="Regueton">
+    <h3> Regueton - Dance Chall</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Jombriel - Vitamina.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Jombriel - Vitamina</h4>
+            <button onclick="toggleAudio(this, 'Music/Regueton/Jombriel - Vitamina.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Regueton">
+    <h3> Regueton - Dance Chall</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Jombriel - La Jama.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Jombriel - La Jama</h4>
+            <button onclick="toggleAudio(this, 'Music/Regueton/Jombriel - La Jama.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Regueton">
+    <h3> Regueton 2025</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Cris Mj - Noche En Medellin.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Cris Mj - Noche En Medellin</h4>
+            <button onclick="toggleAudio(this, 'Music/Regueton/Cris Mj - Noche En Medellin.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Regueton">
+    <h3> Regueton 2025</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Floyymenor - Tu Me Calientas.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Floyymenor - Tu Me Calientas</h4>
+            <button onclick="toggleAudio(this, 'Music/Regueton/Floyymenor - Tu Me Calientas.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Cumbia">
+    <h3> Cumbia Remix</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Quba Rosero - Tu amor mi amor.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Quba Rosero - Tu Amor Mi Amor</h4>
+            <button onclick="toggleAudio(this, 'Music/Cumbia/Quba Rosero - Tu Amor Mi Amor.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Cumbia">
+    <h3> Cumbia Remix</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/Euler Caicedo - Alma del Ayer.jpg" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Euler Caicedo - Patos A Nadar</h4>
+            <button onclick="toggleAudio(this, 'Music/Cumbia/Euler Caicedo - Patos A Nadar.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Cumbia">
+    <h3> Cumbia Remix</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/AnthonyMixer DJ.png" alt="Portada Regueton" width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Star Band Pista AnthonyMixer DJ Producer</h4>
+            <button onclick="toggleAudio(this, 'Music/Cumbia/Star Band Pista AnthonyMixer DJ (Producer).mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+
+<div class="Cumbia">
+    <h3> Cumbia Remix</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/AnthonyMixer DJ.png" alt="Portada " width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Paseito Ecuatoriano Version AnthonyMixer DJ Producer</h4>
+            <button onclick="toggleAudio(this, 'Music/Cumbia/Paseito Ecuatoriano Version AnthonyMixer DJ Producer.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="Cumbia">
+    <h3> Kichwa</h3>
+    <div class="track-card" onclick="playTrack('Music/Alan Walker.mp3', 'Bass Ops')">
+        <img src="Images/AnthonyMixer DJ.png" alt="Portada " width="150" />
+        <canvas class='visualizer' width='250' height='60'></canvas>  
+        <div class="info">
+            <h4>Kichwa</h4>
+            <button onclick="toggleAudio(this, 'Music/Kichwa 2025.mp3')">❤️ Reproducir</button>
+            <button onclick="pauseAudio()">😒 Pausar cancion</button>
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this)">
+            <div class="player-info">
+        <progress value="0" max="100"></progress>
+    <span class="time-display">00:00 / 00:00</span>
+</div>
+</div>
+</div>
+</div>
+
+<img src="Images/portada.jpg" alt="Portada" width="250"/>
+
+
+  <footer class="player-bar">
+    <div class="now-playing">
+      <strong id="nowPlaying">Nada en reproducción</strong>
+    </div>
+    <canvas id="footerVisualizer" width="100" height="30"></canvas>
+  </footer>
+
+<footer class="creditos-footer">
+  <div class="marco-destacado">
+  <img src="Images/portada.png" alt="Logo principal" />
+  <img src="Images/grafico.jpg" alt="Logo gráfico" />
+  <h3>HeiSheVaLei Music</h3>
+  <p>Creado por Heider Díaz, Sheyla, Leisy Grefa, Vanessa</p>
+</div>
+
+  <canvas id="celebration-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
